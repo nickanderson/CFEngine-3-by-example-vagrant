@@ -10,7 +10,7 @@ This project will bring up a CFEngine hub and a remote agent.
 
 Getting Started
 ---------------
-1. Run make ready - This will prepare a seed.tar.gz containing policy
+1. Run `make ready` - This will prepare a seed.tar.gz containing policy
    that will be used by the CFEngine provisioner. More information about
    this policy can be found [here](https://github.com/nickanderson/Getting-Started-with-CFEngine-3-seed "Getting Started with CFEngine 3 seed Repository").  
    It also creates a bare clone of the repository that can be used with
@@ -20,7 +20,7 @@ Getting Started
    Vagrantfile looks at http://localhost:8000/seed.tar.gz. You can
    bring up a simple webserver from the Vagrant project directory
    with python.
-   [code]python -m SimpleHTTPServer[code]
+   `python -m SimpleHTTPServer`
 
 
 TODO
