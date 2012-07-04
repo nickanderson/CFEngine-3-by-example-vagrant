@@ -19,8 +19,7 @@ Getting Started
 2. Setup a local webserver to serv the seed.tar.gz. By default the 
    Vagrantfile looks at http://localhost:8000/seed.tar.gz. You can
    bring up a simple webserver from the Vagrant project directory
-   with python.
-   `python -m SimpleHTTPServer`
+   with `python -m SimpleHTTPServer`.
 
 
 TODO
