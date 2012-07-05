@@ -52,13 +52,3 @@ reports:
   cfengine::
     "This bundle is used to configure policyhub specific settings";
 }
-
-
-
-This training environment was bootstrapped with policy from a seed. The
-make process that generates the seed also generates a bare git repo to
-use as a central repository for your convenience. You may already be
-comfortable with this work flow but for many working with version
-control, and this style of hands of administration is new. This will
-help get you used to a simple work flow and working with a popular
-version control system. It is by no means the only or best way.
