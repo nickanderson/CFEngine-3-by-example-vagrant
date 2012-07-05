@@ -1,0 +1,28 @@
+bundle agent install_cfsketch {
+vars:
+  redhat::
+  "deps" slist => { "git", "make", "perl-List-MoreUtils", "perl-libwww-perl", "perl-JSON" };
+
+classes:
+  "cf_sketch_installed" expression => fileexists("/usr/local/bin/cf-sketch");
+  "design_center_cloned" expression => fileexists("/tmp/design-center/.git/config");
+
+commands:
+  !(cf_sketch_installed|design_center_cloned)::
+    "/usr/bin/git"
+      args => "clone https://github.com/cfengine/design-center/",
+      contain => in_dir("/tmp");
+
+  !cf_sketch_installed.design_center_cloned::
+    "/usr/bin/make"
+      args => "install",
+      contain => in_dir("/tmp/design-center/tools/cf-sketch");
+
+packages:
+  redhat::
+    "$(deps)"
+      package_policy => "add",
+      package_method => yum_rpm;
+    
+
+}
