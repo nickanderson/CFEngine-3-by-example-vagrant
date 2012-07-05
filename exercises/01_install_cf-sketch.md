@@ -17,6 +17,7 @@ We need the following packages installed
 * perl-List-MoreUtils
 * perl-libwww-perl
 * perl-JSON
+* perl-Crypt-SSLeay (its not documented, but I needed it to access the design center repo vs a local clone)
 
 We need to clone the design center repository
 
@@ -32,6 +33,6 @@ Lets integrate the solution into our policy.
     cf-agent -KI
 
 This policy should have installed cf-sketch into /usr/local/bin. Go ahead and test it out.
-cf-sketch --search utilities
+/usr/local/bin/cf-sketch --search utilities
 
 Cool we can see it found some sketches! Lets move on to the next excersise.
