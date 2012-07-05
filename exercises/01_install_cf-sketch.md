@@ -35,4 +35,4 @@ Lets integrate the solution into our policy.
 This policy should have installed cf-sketch into /usr/local/bin. Go ahead and test it out.
 /usr/local/bin/cf-sketch --search utilities
 
-Cool we can see it found some sketches! Lets move on to the next excersise.
+Cool we can see it found some sketches! Lets move on to the next exercise.
