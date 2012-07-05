@@ -1,5 +1,5 @@
-Getting-Started-with-CFEngine-3
-===============================
+CFEngine 3 by Example - Vagrant Project
+=======================================
 
 A vagrant project to bootstrap a test enviornment.
 
@@ -12,14 +12,15 @@ Getting Started
 ---------------
 1. Run `make` - This will prepare a seed.tar.gz containing policy
    that will be used by the CFEngine provisioner. More information about
-   this policy can be found [here](https://github.com/nickanderson/Getting-Started-with-CFEngine-3-seed "Getting Started with CFEngine 3 seed Repository").  
+   this policy can be found [here](https://github.com/nickanderson/CFEngine-3-by-example-seed "CFEngine 3 by example seed repository").  
    It also creates a bare clone of the repository that can be used with
    the excersises as the central version control repository that the
    policy hub pulls from.
-2. Setup a local webserver to serv the seed.tar.gz. By default the 
-   Vagrantfile looks at http://localhost:8000/seed.tar.gz. You can
-   bring up a simple webserver from the Vagrant project directory
-   with `python -m SimpleHTTPServer`.
+2. Setup a local webserver to serv the seed.tar.gz. The Vagrantfile 
+   is configured for the CFEngine provisioner to look for the seed
+   at http://localhost:8000/seed.tar.gz. You can bring up a simple 
+   webserver from the Vagrant project directory with 
+   `python -m SimpleHTTPServer`.
 
 
 TODO
