@@ -6,7 +6,7 @@ clean:
 
 ready:
 	mkdir -p tmp/seed
-	git clone git://github.com/nickanderson/Getting-Started-with-CFEngine-3-seed.git tmp/seed.clone
+	git clone git://github.com/nickanderson/CFEngine-3-by-example-seed.git tmp/seed.clone
 	cd tmp/seed.clone && git archive master | tar -x -C ../seed
 	rm -rf tmp/seed.clone
 	tar -czvf seed.tar.gz -C ./tmp/seed/ .
