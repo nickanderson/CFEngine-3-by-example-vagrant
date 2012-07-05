@@ -10,9 +10,9 @@ Vagrant::Config.run do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   # Use this basebox image
-  config.vm.box = "centos_6_x86_64_minimal"
+  config.vm.box = "centos_6_x86_64_minimal_4.1.12"
   # If the basebox image is not yet cached on the local system source it from here
-  config.vm.box_url = "http://dl.dropbox.com/u/9227672/CentOS-6.0-x86_64-netboot-4.1.6.box"
+  config.vm.box_url = "https://dl.dropbox.com/u/5861161/vagrant/CentOS-6.0-x86_64-netboot-4.1.12.box"
 
   # CFEngine really doens't require much in the way of resources
   config.vm.customize ["modifyvm", :id, "--memory", 256]
