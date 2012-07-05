@@ -25,6 +25,4 @@ Getting Started
 
 TODO
 ----
-* Excersises designed to get you used to working with cfengine
-* Work in typical version control -> masterfiles -> inputs flow
-
+* Excersises designed to get you used to working with CFEngine 3 for hads off administration.
