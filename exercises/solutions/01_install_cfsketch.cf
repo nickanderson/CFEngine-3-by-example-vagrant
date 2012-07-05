@@ -1,7 +1,7 @@
 bundle agent install_cfsketch {
 vars:
   redhat::
-  "deps" slist => { "git", "make", "perl-List-MoreUtils", "perl-libwww-perl", "perl-JSON" };
+  "deps" slist => { "git", "make", "perl-List-MoreUtils", "perl-libwww-perl", "perl-JSON", "perl-Crypt-SSLeay" };
 
 classes:
   "cf_sketch_installed" expression => fileexists("/usr/local/bin/cf-sketch");
