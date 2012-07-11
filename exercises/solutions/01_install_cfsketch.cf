@@ -11,18 +11,29 @@ commands:
   !(cf_sketch_installed|design_center_cloned)::
     "/usr/bin/git"
       args => "clone https://github.com/cfengine/design-center/",
+      classes => if_repaired("install_cfsketch_design_center_cloned"),
       contain => in_dir("/tmp");
 
   !cf_sketch_installed.design_center_cloned::
     "/usr/bin/make"
       args => "install",
+      classes => if_repaired("install_cfsketch_make_install_successful"),
       contain => in_dir("/tmp/design-center/tools/cf-sketch");
 
 packages:
   redhat::
     "$(deps)"
       package_policy => "add",
+      classes => if_repaired("install_cfsketch_deps_installed"),
       package_method => yum_rpm;
     
+reports:
+  install_cfsketch_deps_installed::
+    "cf-sketch dependancies have been installed";
 
+  install_cfsketch_design_center_cloned::
+    "The CFEngine design center has been cloned locally";
+
+  install_cfsketch_make_install_successful::    
+    "cf-sketch has been installed";
 }
