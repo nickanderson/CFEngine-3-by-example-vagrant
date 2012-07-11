@@ -26,3 +26,4 @@ This Vagrantfile was tested against
 TODO
 ----
 * Excersises designed to get you used to working with CFEngine 3 for hands off administration.
+* Excersise covering cf_promises_validated getting added to git ignore
