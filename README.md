@@ -20,7 +20,8 @@ Getting Started
 
 ### Special Note ###
 The CFEngine Provisioner plugin is still in active developemnt, things may be changing.
-This Vagrantfile was tested against cfengine/vagrant-cfengine-provisioner@0981c5ed95c3a3b413304a9e7d93dbc25ce17d41
+This Vagrantfile was tested against 
+* User/Project@SHA: cfengine/vagrant-cfengine-provisioner@0981c5ed95c3a3b413304a9e7d93dbc25ce17d41
 
 TODO
 ----
