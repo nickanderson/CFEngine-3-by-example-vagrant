@@ -49,7 +49,14 @@ Vagrant::Config.run do |config|
       # Seed the /var/cfengine directory with the contents of this targz
       # Your host system will need to be running a webserver and have this file
       # available for downloading.
-      cf3.cfengine_tarfile_url = 'http://localhost:8000/seed.tar.gz'
+      # cf3.tarfile_url = 'http://localhost:8000/seed.tar.gz'
+
+      # Filename of a .tar.gz file that gets unpacked under /var/cfengine/
+      # The effect is the same as with cfengine_tarfile_url, but this
+      # is expected to be a path relative to the current directory (where
+      # the Vagrantfile is stored).
+      cf3.tarfile_path = "seed.tar.gz"
+
     end
   end
 
