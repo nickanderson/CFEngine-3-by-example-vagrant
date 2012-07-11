@@ -1,8 +1,10 @@
-default: ready 
+default: clean ready 
 
 clean:
-	rm seed.tar.gz
-	rm -rf masterfiles.git
+	-rm seed.tar.gz
+	-rm -rf masterfiles.git
+	-rm -rf tmp
+	-rm -rf masterfiles.before_gitify
 
 ready:
 	mkdir -p tmp/seed
