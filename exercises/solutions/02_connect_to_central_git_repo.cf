@@ -1,0 +1,68 @@
+bundle agent mirror_masterfiles{
+  vars:
+    "git_branch" string => "master";
+    "git_bundle_home" string => "/var/cfengine/inputs/sketches/VCS/vcs_mirror";
+    "git_origin" string => "/vagrant/masterfiles.git";
+    "git_path" string => "/var/cfengine/masterfiles";
+    "git_runas" string => "root";
+    "git_vcs" string => "/usr/bin/git";
+
+  classes:
+    "masterfiles_is_a_clone" expression => fileexists("/var/cfengine/masterfiles/.git/config");
+
+  methods:
+    # If masterfiles is not a git repo, then we go ahead and point it at the central repo
+    !masterfiles_is_a_clone::
+      "masterfiles"
+        usebundle => point_masterfiles_to_repo,
+        comment   => "Lets make this directory a git repo and point it at the central repo to track";
+
+    # Now that it is a git repo we can use the vcs_mirror sketch to keep masterfiles in sync with 
+    # the central repository branch specified
+    masterfiles_is_a_clone::
+      "masterfiles"
+        usebundle => vcs_mirror("mirror_masterfiles.git_");
+}
+
+
+bundle agent point_masterfiles_to_repo{
+  vars:
+    redhat::
+      "package_list" slist => { "git" };
+      "central_git_repo" string => "/vagrant/masterfiles.git/";
+
+  classes:
+    "masterfiles_is_clone" expression => fileexists("/var/cfengine/masterfiles/.git/config");
+
+  commands:
+    !masterfiles_is_clone::
+      "/bin/cp"
+        args => "-R /var/cfengine/masterfiles /vagrant/masterfiles.before_gitify",
+        classes => if_repaired("point_masterfiles_to_repo_masterfiles_backup_complete");
+
+      "/usr/bin/git"
+        args => "init",
+        contain => in_dir("$(def.dir_masterfiles)");
+
+      "/usr/bin/git"
+        handle => "policyhub_commands_git_remote_add_origin",
+        args => "remote add --track master origin $(central_git_repo)",
+        contain => in_dir("$(def.dir_masterfiles)"),
+        classes => if_repaired("point_masterfiles_to_repo_masterfiles_pointed_to_central_repo");
+        comment => "$(def.dir_masterfiles) should be a clone of $(central_git_repo)";
+
+  packages:
+    redhat::
+      "$(package_list)"
+        package_policy => "add",
+        package_method => yum_rpm;
+
+  reports:
+    point_masterfiles_to_repo_masterfiles_backup_complete::
+      "Masterfiles has been backed up to /vagrant/masterfiles.before_gitify";
+
+    point_masterfiles_to_repo_masterfiles_pointed_to_central_repo::
+      "Masterfiles is now a git clone tracking $(central_git_repo)";
+}
+
+
