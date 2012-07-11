@@ -20,7 +20,7 @@ Vagrant::Config.run do |config|
   # Use this for debugging or getting a better visual picture of whats
   # happening. There may be some bugs related to gui mode that may or
   # may not have anything to do with the CFEngine provider.
-  # config.vm.boot_mode = :gui
+  config.vm.boot_mode = :gui
 
 
   # Policy Hub Definition
