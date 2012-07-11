@@ -48,7 +48,7 @@ bundle agent point_masterfiles_to_repo{
         handle => "policyhub_commands_git_remote_add_origin",
         args => "remote add --track master origin $(central_git_repo)",
         contain => in_dir("$(def.dir_masterfiles)"),
-        classes => if_repaired("point_masterfiles_to_repo_masterfiles_pointed_to_central_repo");
+        classes => if_repaired("point_masterfiles_to_repo_masterfiles_pointed_to_central_repo"),
         comment => "$(def.dir_masterfiles) should be a clone of $(central_git_repo)";
 
   packages:
