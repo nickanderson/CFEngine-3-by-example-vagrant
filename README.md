@@ -11,17 +11,20 @@ This project will bring up a CFEngine hub and a remote agent.
 Getting Started
 ---------------
 
-1. Run `make` - This will prepare a seed.tar.gz containing policy
-   that will be used by the CFEngine provisioner. More information about
-   this policy can be found [here](https://github.com/nickanderson/CFEngine-3-by-example-seed "CFEngine 3 by example seed repository").  
-   It also creates a bare clone of the repository that can be used with
-   the excersises as the central version control repository that the
-   policy hub pulls from.
+1. Run `make` - This will prepare seed.tar.gz. This seed policy is
+   source from [here](https://github.com/nickanderson/CFEngine-3-by-example-seed "CFEngine 3 by example seed repository").  
+   It also creates masterfiles.git in the Vagrant project directory
+   which is a bare git repository of masterfiles from the seed. This
+   repository is used as the "central repository". The hubs 
+   `/var/cfengine/masterfiles` is kept in a clean clone state from
+   the repository. Changes to the policy are intended to be made by
+   checking the changes into this repository. This is a typical 
+   workflow and is intended to familarize you with hands off
+   administration.
 
 ### Special Note ###
 The CFEngine Provisioner plugin is still in active developemnt, things may be changing.
-This Vagrantfile was tested against 
-* User/Project@SHA: cfengine/vagrant-cfengine-provisioner@0981c5ed95c3a3b413304a9e7d93dbc25ce17d41
+This Vagrantfile was tested against [cfengine/vagrant-cfengine-provisioner@0981c5ed95](https://github.com/cfengine/vagrant-cfengine-provisioner/commit/0981c5ed95c3a3b413304a9e7d93dbc25ce17d41)
 
 TODO
 ----
