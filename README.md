@@ -22,6 +22,12 @@ Getting Started
    workflow and is intended to familarize you with hands off
    administration.
 
+2. Run `vagrant up` and in a few minutes you will have a hub and a client bootstrapped.
+
+3. Clone the masterfiles.git repository so you can start writing policy!
+
+    git clone masterfiles.git
+
 ### Special Note ###
 The CFEngine Provisioner plugin is still in active developemnt, things may be changing.
 This Vagrantfile was tested against [cfengine/vagrant-cfengine-provisioner@0981c5ed95](https://github.com/cfengine/vagrant-cfengine-provisioner/commit/0981c5ed95c3a3b413304a9e7d93dbc25ce17d41)
