@@ -16,4 +16,8 @@ ready:
 	cd tmp/seed/masterfiles/ && git init && git add . && git commit -m "Inital policy import"
 	git clone --bare tmp/seed/masterfiles masterfiles.git
 	cd masterfiles.git && git remote rm origin
+	mkdir -p tmp/vagrant-cfengine-provisioner
+	git clone https://github.com/cfengine/vagrant-cfengine-provisioner tmp/vagrant-cfengine-provisioner/
+	cd tmp/vagrant-cfengine-provisioner && git reset --hard 0981c5ed95c3a3b413304a9e7d93dbc25ce17d41 
+	cp tmp/vagrant-cfengine-provisioner/cfengine_provisioner.rb .
 	rm -rf tmp
