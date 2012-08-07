@@ -1,4 +1,5 @@
 masterfiles.git/
+masterfiles
 seed.tar.gz
 cfengine_provisioner.rb
 .vagrant
