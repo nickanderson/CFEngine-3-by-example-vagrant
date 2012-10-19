@@ -1,4 +1,6 @@
 masterfiles.git/
+packages/*.rpm
+packages/*.deb
 masterfiles
 seed.tar.gz
 cfengine_provisioner.rb
