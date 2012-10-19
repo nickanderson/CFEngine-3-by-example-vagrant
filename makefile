@@ -8,6 +8,7 @@ clean:
 	-rm -rf tmp
 	-rm -rf masterfiles
 	-rm -rf masterfiles.before_gitify
+	-rm -rf cfengine_provisioner.rb
 
 ready:
 	mkdir -p tmp/seed
