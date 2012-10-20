@@ -88,7 +88,7 @@ function install_cfengine_community {
 
     # For RPM/yum
     if [[ "$PKGTYPE" == "rpm" ]]; then 
-      CMD="rpm -ivh"
+      CMD="rpm -i"
       PKG1="$PKGDIR"/cfengine-community-"$VERSION"."$ARCH"."$PKGTYPE"
 
     # For Ubuntu/apt
