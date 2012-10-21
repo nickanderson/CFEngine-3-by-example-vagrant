@@ -40,6 +40,9 @@ virtualbox, and cygwin with tar, and git. wget and vim are also useful to have.
 You will need to the the git clone and make from a Cygwin shell and run
 `vagrant.bat up` instead of `vagrant up`.
 
+You might try installing cygwin like this:
+    setup.exe --quiet-mode --packages openssh, wget, tar, git 
+
 
 TODO
 ----
