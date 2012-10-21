@@ -34,8 +34,14 @@ be changing. The version of the Vagrant CFEngine provisioner this
 Vagrantfile was tested against is deposited in the Vagrant project
 directory as part of `make`.
 
+### Windows Users ###
+I have successfully tested this on windows. You need the vagrant msi package,
+virtualbox, and cygwin with tar, and git. wget and vim are also useful to have.
+You will need to the the git clone and make from a Cygwin shell and run
+`vagrant.bat up` instead of `vagrant up`.
+
+
 TODO
 ----
 * Excersises designed to get you used to working with CFEngine 3 for hands
   off administration.
-* Excersise covering cf_promises_validated getting added to git ignore
