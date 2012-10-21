@@ -1,4 +1,6 @@
 TESTED_PROVISIONER_VERSION=0981c5ed95c3a3b413304a9e7d93dbc25ce17d41
+PROVISIONER_ORIGIN=git://github.com/cfengine/vagrant-cfengine-provisioner.git
+SEED_ORIGIN=git://github.com/nickanderson/CFEngine-3-by-example-seed.git
 
 default: clean ready 
 
@@ -12,7 +14,7 @@ clean:
 
 ready:
 	mkdir -p tmp/seed
-	git clone git://github.com/nickanderson/CFEngine-3-by-example-seed.git tmp/seed.clone
+	git clone $(SEED_ORIGIN) tmp/seed.clone
 	cd tmp/seed.clone && git archive master | tar -x -C ../seed
 	rm -rf tmp/seed.clone
 	tar -czvf seed.tar.gz -C ./tmp/seed/ .
@@ -20,7 +22,7 @@ ready:
 	git clone --bare tmp/seed/masterfiles masterfiles.git
 	cd masterfiles.git && git remote rm origin
 	mkdir -p tmp/vagrant-cfengine-provisioner
-	git clone https://github.com/cfengine/vagrant-cfengine-provisioner tmp/vagrant-cfengine-provisioner/
+	git clone $(PROVISIONER_ORIGIN) tmp/vagrant-cfengine-provisioner/
 	cd tmp/vagrant-cfengine-provisioner && git reset --hard $(TESTED_PROVISIONER_VERSION)
 	cp tmp/vagrant-cfengine-provisioner/cfengine_provisioner.rb .
 	rm -rf tmp
