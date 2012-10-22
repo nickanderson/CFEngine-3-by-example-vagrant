@@ -8,6 +8,18 @@ This project will bring up a CFEngine hub and a remote agent.
 * cfhub - 10.1.1.10
 * cfclient - 10.1.1.11
 
+Quickstart
+----------
+Want to get going as fast as possible?
+
+    git clone git://github.com/nickanderson/CFEngine-3-by-example-vagrant.git
+    cd packages
+    wget http://cfengine.com/pub/yum/i386/cfengine-community-3.3.5-1.i368.rpm
+    mv cfengine-community-3.3.5-1.i368.rpm cfengine-community-3.3.5-1.i386.rpm
+    cd ..
+    make
+    vagrant up 
+
 Getting Started
 ---------------
 
