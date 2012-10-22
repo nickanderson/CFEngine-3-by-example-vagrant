@@ -8,6 +8,12 @@ This project will bring up a CFEngine hub and a remote agent.
 * cfhub - 10.1.1.10
 * cfclient - 10.1.1.11
 
+Requirements
+------------
+* Vagrant http://downloads.vagrantup.com/tags/v1.0.5
+* Virtualbox https://www.virtualbox.org/wiki/Downloads
+* git, make, wget, tar
+
 Quickstart
 ----------
 Want to get going as fast as possible?
