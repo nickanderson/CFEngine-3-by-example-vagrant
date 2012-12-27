@@ -1,6 +1,7 @@
 TESTED_PROVISIONER_VERSION=0981c5ed95c3a3b413304a9e7d93dbc25ce17d41
 PROVISIONER_ORIGIN=git://github.com/cfengine/vagrant-cfengine-provisioner.git
 SEED_ORIGIN=git://github.com/nickanderson/CFEngine-3-by-example-seed.git
+SEED_ORIGIN_BRANCH=master
 
 default: clean ready 
 
@@ -14,8 +15,8 @@ clean:
 
 ready:
 	mkdir -p tmp/seed
-	git clone $(SEED_ORIGIN) tmp/seed.clone
-	cd tmp/seed.clone && git archive master | tar -x -C ../seed
+	git clone -b $(SEED_ORIGIN_BRANCH) $(SEED_ORIGIN) tmp/seed.clone
+	cd tmp/seed.clone && git archive $(SEED_ORIGIN_BRANCH) | tar -x -C ../seed
 	rm -rf tmp/seed.clone
 	tar -czvf seed.tar.gz -C ./tmp/seed/ .
 	cd tmp/seed/masterfiles/ && git init && git add . && git commit -m "Inital policy import"
