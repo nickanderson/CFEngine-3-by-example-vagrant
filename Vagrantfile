@@ -6,7 +6,7 @@ require './cfengine_provisioner.rb'
 CFENGINE_DIST="community"
 
 # NOTE: Change this to 3.4.1 if you want to use Ubuntu below
-CFENGINE_VERSION="3.4.1" 
+CFENGINE_VERSION="3.4.1-1" 
 CFENGINE_INSTALL_SCRIPT="install_cfengine.sh"
 HUBIP="10.1.1.10"
 
