@@ -4,7 +4,7 @@
 require './cfengine_provisioner.rb'
 
 CFENGINE_DIST="community"
-CFENGINE_VERSION="3.3.5-1"
+CFENGINE_VERSION="3.4.1-1"
 CFENGINE_INSTALL_SCRIPT="install_cfengine.sh"
 HUBIP="10.1.1.10"
 

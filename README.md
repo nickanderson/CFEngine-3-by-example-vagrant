@@ -19,9 +19,12 @@ Quickstart
 Want to get going as fast as possible?
 
     git clone git://github.com/nickanderson/CFEngine-3-by-example-vagrant.git
+    
+    # Dowload CFEngine 3.4.1 for Centos6 (i386)
     cd packages
-    wget http://cfengine.com/pub/yum/i386/cfengine-community-3.3.5-1.i368.rpm
-    mv cfengine-community-3.3.5-1.i368.rpm cfengine-community-3.3.5-1.i386.rpm
+    curl -O -J -L https://cfengine.com/inside/binarydownload/download/items/990
+    
+    # Install the packages
     cd ..
     make
     vagrant up 
@@ -47,10 +50,10 @@ Getting Started
     git clone masterfiles.git
 
 ### Special Note ###
-The CFEngine Provisioner plugin is still in active developemnt, things may
-be changing. The version of the Vagrant CFEngine provisioner this
-Vagrantfile was tested against is deposited in the Vagrant project
-directory as part of `make`.
+The CFEngine Provisioner plugin is still in active development, things may be
+changing. The version of the Vagrant CFEngine provisioner this Vagrantfile was
+tested against is deposited in the Vagrant project directory as part of
+`make`.
 
 ### Windows Users ###
 I have successfully tested this on windows. You need the vagrant msi package,
