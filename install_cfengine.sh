@@ -2,7 +2,7 @@
 # CFEngine Community/Enterprise Vagrant Install Provisioner
 
 # Default Community Version
-DEFAULT_COMMUNITY_VERSION="3.3.5-1"
+DEFAULT_COMMUNITY_VERSION="3.4.1-1"
 
 # Default Enterprise Version
 DEFAULT_ENTERPRISE_VERSION="2.2.3-1"

@@ -5,6 +5,9 @@ require './cfengine_provisioner.rb'
 
 CFENGINE_DIST="community"
 CFENGINE_VERSION="3.4.1-1"
+
+# NOTE: Change this to 3.4.1 if you want to use Ubuntu below
+#CFENGINE_VERSION="3.4.1-1" 
 CFENGINE_INSTALL_SCRIPT="install_cfengine.sh"
 HUBIP="10.1.1.10"
 
@@ -13,18 +16,21 @@ Vagrant::Config.run do |config|
   # Valid Boot Modes: *headless|gui
   #config.vm.boot_mode = "gui"
 
-  # Base box to use as found in vagrant box list
+  # Ubuntu 12.04 - 32 bit
+  # Download the correct CFEngine version with:
+  #  cd packages && curl -O -J -L https://cfengine.com/inside/binarydownload/download/items/990
   #config.vm.box = "precise32"
-    
-  # Location to source base box if not found in vagrant boxe list
-  # file path, or http urls are valid
-  #config.vm.box_url = "precise32.box"
-  #config.vm.box_url = "http://dropbox.com/somewhere/precise32.box"
+  #config.vm.box_url = "http://files.vagrantup.com/precise32.box"
+  
+  # Ubuntu 12.04 - 64 bit
+  # Download the correct CFEngine version with:
+  #  cd packages && curl -O -J -L https://cfengine.com/inside/binarydownload/download/items/976
+  #config.vm.box = "precise64"
+  #config.vm.box_url = "http://files.vagrantup.com/precise64.box"
   
   # Generic Centos 6 minimal install with guest additions
   config.vm.box = "centos-6x_i386-minimal-4.1.22"
   config.vm.box_url = "https://dl.dropbox.com/u/5861161/vagrant/centos-6x_i386-minimal-4.1.22.box"
-
 
   #### Define VMs ####
 
@@ -46,12 +52,9 @@ Vagrant::Config.run do |config|
     hub_config.vm.provision CFEngineProvisioner do |cf3|
       cf3.mode = :bootstrap
       cf3.policy_server = "#{HUBIP}"
-      cf3.install_cfengine = true
       cf3.am_policy_hub = true
       cf3.tarfile_path = "seed.tar.gz"
-
     end
-
   end
 
   # Now create a client
@@ -70,11 +73,8 @@ Vagrant::Config.run do |config|
      # Run the CFEngine provisioner
      hub_config.vm.provision CFEngineProvisioner do |cf3|
        cf3.mode = :bootstrap
-       cf3.install_cfengine = true
        cf3.am_policy_hub = false
        cf3.policy_server = "#{HUBIP}"
      end
-
   end
-
 end
