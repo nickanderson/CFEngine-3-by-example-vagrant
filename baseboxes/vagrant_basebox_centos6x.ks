@@ -131,13 +131,13 @@ echo '#!/bin/bash
 # It installs the required build dependancies, installs the additions
 # then removes the build deps
 
-yum -y install gcc make kernel-devel-$(uname -r) kernel-headers-$(uname -r) perl 
-LATEST_VBOX=$(curl --silent http://download.virtualbox.org/virtualbox/LATEST.TXT) && echo downloading virtualbox vuest additions for $LATEST_VBOX
-ISO=VBoxGuestAdditions_$LATEST_VBOX.iso
-curl --remote-name --location http://download.virtualbox.org/virtualbox/$LATEST_VBOX/$ISO
+yum -y install dmidecode gcc make kernel-devel-$(uname -r) kernel-headers-$(uname -r) perl 
+#LATEST_VBOX=$(curl --silent http://download.virtualbox.org/virtualbox/LATEST.TXT) && echo downloading virtualbox vuest additions for $LATEST_VBOX
+vboxVer=$(dmidecode | grep vboxVer | sed 's/.*vboxVer_//gi')
+ISO=VBoxGuestAdditions_$vboxVer.iso
+curl --remote-name --location http://download.virtualbox.org/virtualbox/$vboxVer/$ISO
 mount -o loop $ISO /mnt
 /mnt/VBoxLinuxAdditions.run
-yum -y remove gcc make kernel-devel kernel-headers perl
 yum -y clean all
 umount /mnt
 rm $ISO
@@ -145,12 +145,18 @@ rm $ISO
 chmod +x /root/bin/$scriptInstallGuestAdditions
 ##################################
 
+echo "#!/bin/bash
+# Prepare the system for packaging
 # Cleanup things that might be taking disk space
 yum clean all
-
+rm -f /root/.bash_history
+rm -f /etc/udev/rules.d/70-persistent-net.rules
+dd if=/dev/zero of=/zero
+rm -f /zero
+echo POWER OFF AND PACKAGE
+" > /root/bin/preparetopackage
+chmod +x /root/bin/preparetopackage
 #chkconfig --add $scriptInstallGuestAdditions
 #chkconfig $scriptInstallGuestAdditions on
 
 %end
-
-# Yum upgrade && reboot, rebuild guest tools 
