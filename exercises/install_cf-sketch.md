@@ -28,9 +28,9 @@ Lets integrate the solution into our policy.
     vagrant ssh cfhub
     sudo mkdir /var/cfengine/masterfiles/solutions/
     sudo cp  /vagrant/exercises/solutions/01_install_cfsketch.cf /var/cfengine/masterfiles/solutions/01_install_cfsketch.cf
-    cf-promises -f /var/cfengine/masterfiles/promises.cf
-    cf-agent -KIB
-    cf-agent -KI
+    sudo cf-promises -f /var/cfengine/masterfiles/promises.cf
+    sudo cf-agent -KIB
+    sudo cf-agent -KI
 
 This policy should have installed cf-sketch into /usr/local/bin. Go ahead and test it out.
 /usr/local/bin/cf-sketch --search utilities
