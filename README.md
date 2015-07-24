@@ -1,3 +1,6 @@
+THIS PROJECT IS NOT ACTIVE. I USE https://docs.cfengine.com/latest/guide-installation-and-configuration-general-installation-installation-enterprise-vagrant.html these days.
+
+
 CFEngine 3 by Example - Vagrant Project
 =======================================
 
